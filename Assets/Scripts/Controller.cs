@@ -27,11 +27,11 @@ public class Controller : MonoBehaviour
 
         if(Mathf.Abs(_rb.velocity.x) < _speed)
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 _rb.AddForce(Vector2.right * 50f);
             }
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
                 _rb.AddForce(- Vector2.right * 50f);
             }
@@ -49,7 +49,7 @@ public class Controller : MonoBehaviour
         }
             
         // Jump code
-        if (_isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
+        if (_isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             _rb.AddForce(Vector2.up * _jumpforce, ForceMode2D.Impulse);
         }
